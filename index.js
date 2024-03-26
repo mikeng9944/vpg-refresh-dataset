@@ -18,14 +18,14 @@ app.get("/refresh", function (req, res) {
     //   'div[data-test-id="mike.ng@valuepartners-group.com"]'
     // );
     // await page.click('div[data-test-id="mike.ng@valuepartners-group.com"]');
-    await page.waitForSelector('button[title="重新整理"]');
-    await page.click('button[title="重新整理"]');
+    await page.waitForSelector('button[title="Refresh"]');
+    await page.click('button[title="Refresh"]');
 
-    await page.waitForSelector('button[title="立即更新"]');
-    await page.click('button[title="立即更新"]');
-    await page.click('button[title="立即更新"]');
-    await page.click('button[title="立即更新"]');
-    await page.click('button[title="立即更新"]');
+    await page.waitForSelector('button[title="Refresh now"]');
+    await page.click('button[title="Refresh now"]');
+    await page.click('button[title="Refresh now"]');
+    await page.click('button[title="Refresh now"]');
+    await page.click('button[title="Refresh now"]');
 
     setTimeout(function () {
       page.close();
