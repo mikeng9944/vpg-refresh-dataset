@@ -24,9 +24,9 @@ app.get("/refresh", function (req, res) {
     await page.waitForSelector('button[title="立即更新"]');
     await page.click('button[title="立即更新"]');
     await page.click('button[title="立即更新"]');
-    setTimeout(function () {
-      browser.close();
-    }, 5000);
+    // setTimeout(function () {
+    //   browser.close();
+    // }, 5000);
     res.send("Finished refresh.");
   })();
 });
