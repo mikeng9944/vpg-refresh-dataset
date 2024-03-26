@@ -8,7 +8,6 @@ app.get("/refresh", function (req, res) {
   (async () => {
     const browser = await puppeteer.connect({
       browserURL: "http://127.0.0.1:9222",
-      waitUntil: "networkidle0",
     });
     const page = await browser.newPage();
 
@@ -21,7 +20,7 @@ app.get("/refresh", function (req, res) {
     // await page.click('div[data-test-id="mike.ng@valuepartners-group.com"]');
     await page.waitForSelector('button[title="Refresh"]');
     await page.click('button[title="Refresh"]');
-
+    await page.waitForNavigation();
     await page.waitForSelector('button[title="Refresh now"]');
     await page.click('button[title="Refresh now"]');
     await page.click('button[title="Refresh now"]');
