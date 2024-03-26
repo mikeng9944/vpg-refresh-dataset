@@ -20,8 +20,9 @@ app.get("/refresh", function (req, res) {
     // await page.click('div[data-test-id="mike.ng@valuepartners-group.com"]');
     await page.waitForSelector('button[title="Refresh"]');
     await page.click('button[title="Refresh"]');
-    await page.waitForSelector('button[title="Refresh"]');
-    await page.waitForSelector('button[title="Refresh now"]');
+    await page.waitForSelector('button[title="Refresh now"]', {
+      visible: true,
+    });
     await page.click('button[title="Refresh now"]');
     await page.click('button[title="Refresh now"]');
     await page.click('button[title="Refresh now"]');
