@@ -9,7 +9,7 @@ app.get("/refresh", function (req, res) {
     const browser = await puppeteer.launch({
       executablePath:
         "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
-      headless: false,
+      headless: true,
     });
     const page = await browser.newPage();
 
