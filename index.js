@@ -8,6 +8,7 @@ app.get("/refresh", function (req, res) {
   (async () => {
     const browser = await puppeteer.connect({
       browserURL: "http://127.0.0.1:9222",
+      waitUntil: "networkidle0",
     });
     const page = await browser.newPage();
 
