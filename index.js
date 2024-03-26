@@ -34,9 +34,6 @@ app.get("/refresh", function (req, res) {
       }, 5000);
       res.send("Finished refresh.");
     } catch (error) {
-      setTimeout(function () {
-        page.close();
-      }, 5000);
       res.send("Finished refresh.");
     }
   })();
