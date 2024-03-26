@@ -29,11 +29,16 @@ app.get("/refresh", function (req, res) {
       await page.click('button[title="Refresh now"]');
       await page.click('button[title="Refresh now"]');
 
+      const pages = await browser.pages();
+
       setTimeout(function () {
-        page.close();
+        for (let i = 1; i < pages.length; i++) {
+          pages[i].close();
+        }
       }, 5000);
       res.send("Finished refresh.");
     } catch (error) {
+      console.log(error);
       res.send("Finished refresh.");
     }
   })();
