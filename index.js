@@ -34,8 +34,10 @@ app.get("/refresh", function (req, res) {
       }, 5000);
       res.send("Finished refresh.");
     } catch (error) {
-      console.error(error);
-      res.status(500).send("An error occurred while refreshing.");
+      setTimeout(function () {
+        page.close();
+      }, 5000);
+      res.send("Finished refresh.");
     }
   })();
 });
