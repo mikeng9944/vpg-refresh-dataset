@@ -2,14 +2,15 @@ const express = require("express"); // Adding Express
 const app = express(); // Initializing Express
 const port = process.env.PORT || 8080;
 
-const puppeteer = require("puppeteer-core");
+const puppeteer = require("puppeteer");
 
 app.get("/refresh", function (req, res) {
   (async () => {
     const browser = await puppeteer.launch({
-      executablePath:
-        "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
       headless: false,
+      executablePath:
+        "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      args: ["--user-data-dir=/home/lukasz/.config/google-chrome"],
     });
     const page = await browser.newPage();
 
