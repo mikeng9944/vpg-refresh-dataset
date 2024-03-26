@@ -19,14 +19,14 @@ app.get("/refresh", function (req, res) {
     //   'div[data-test-id="mike.ng@valuepartners-group.com"]'
     // );
     // await page.click('div[data-test-id="mike.ng@valuepartners-group.com"]');
-    // await page.waitForSelector('button[title="重新整理"]');
-    // await page.click('button[title="重新整理"]');
-    // await page.waitForSelector('button[title="立即更新"]');
-    // await page.click('button[title="立即更新"]');
-    // await page.click('button[title="立即更新"]');
-    // setTimeout(function () {
-    //   browser.close();
-    // }, 5000);
+    await page.waitForSelector('button[title="重新整理"]');
+    await page.click('button[title="重新整理"]');
+    await page.waitForSelector('button[title="立即更新"]');
+    await page.click('button[title="立即更新"]');
+    await page.click('button[title="立即更新"]');
+    setTimeout(function () {
+      browser.close();
+    }, 5000);
     res.send("Finished refresh.");
   })();
 });
