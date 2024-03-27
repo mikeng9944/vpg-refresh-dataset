@@ -39,6 +39,13 @@ app.post("/refresh", function (req, res) {
       }, 5000);
       res.send("Finished refresh.");
     } catch (error) {
+      const pages = await browser.pages();
+
+      setTimeout(function () {
+        for (let i = 1; i < pages.length; i++) {
+          pages[i].close();
+        }
+      }, 5000);
       res.send("Finished refresh.");
     }
   })();
