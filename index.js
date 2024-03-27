@@ -39,6 +39,10 @@ app.post("/refresh", function (req, res) {
       }, 5000);
       res.send("Finished refresh.");
     } catch (error) {
+      const browser = await puppeteer.connect({
+        browserURL: "http://127.0.0.1:9222",
+      });
+
       const pages = await browser.pages();
 
       setTimeout(function () {
