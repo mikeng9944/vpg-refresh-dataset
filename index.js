@@ -38,7 +38,6 @@ app.get("/refresh", function (req, res) {
       }, 5000);
       res.send("Finished refresh.");
     } catch (error) {
-      console.log(error);
       res.send("Finished refresh.");
     }
   })();
