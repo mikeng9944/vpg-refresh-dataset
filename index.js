@@ -1,10 +1,13 @@
 const express = require("express"); // Adding Express
 const app = express(); // Initializing Express
+app.use(express.json());
 const port = process.env.PORT || 8080;
 
 const puppeteer = require("puppeteer");
 
-app.get("/refresh", function (req, res) {
+app.post("/refresh", function (req, res) {
+  const { dataset_url } = req.body;
+
   (async () => {
     try {
       const browser = await puppeteer.connect({
@@ -12,9 +15,7 @@ app.get("/refresh", function (req, res) {
       });
       const page = await browser.newPage();
 
-      await page.goto(
-        "https://app.powerbi.com/groups/ce2aea02-18eb-4751-a383-4bfe0457272b/datasets/0a5183b0-0ffe-4b09-84d2-3bbe6acd5aec/details?experience=power-bi"
-      );
+      await page.goto(dataset_url);
       // await page.waitForSelector(
       //   'div[data-test-id="mike.ng@valuepartners-group.com"]'
       // );
