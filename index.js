@@ -11,7 +11,7 @@ app.post("/refresh", function (req, res) {
   (async () => {
     try {
       const browser = await puppeteer.connect({
-        browserURL: "http://127.0.0.1:9222",
+        browserURL: dataset_url,
       });
       const page = await browser.newPage();
 
@@ -40,7 +40,7 @@ app.post("/refresh", function (req, res) {
       res.send("Finished refresh.");
     } catch (error) {
       const browser = await puppeteer.connect({
-        browserURL: "http://127.0.0.1:9222",
+        browserURL: dataset_url,
       });
 
       const pages = await browser.pages();
